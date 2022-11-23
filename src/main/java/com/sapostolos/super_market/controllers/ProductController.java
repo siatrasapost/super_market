@@ -4,6 +4,7 @@ import com.sapostolos.super_market.dtos.GetProductDto;
 import com.sapostolos.super_market.dtos.QuantityDto;
 import com.sapostolos.super_market.dtos.RegisterProductDto;
 import com.sapostolos.super_market.services.ProductService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,6 +51,7 @@ public class ProductController {
     }
 
     @PostMapping(path = "/{productId}/restock")
+    @PreAuthorize("hasAuthority('ADMIN')")
     void restockProduct(@PathVariable UUID productId, @RequestBody QuantityDto quantityDto){
         productService.restockProduct(productId, quantityDto);
     }

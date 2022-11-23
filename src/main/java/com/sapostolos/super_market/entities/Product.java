@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 import java.util.UUID;
 
 @Entity
@@ -18,10 +20,16 @@ public class Product {
     @Column(name = "id", columnDefinition = "VARCHAR(255)")
     @Type(type="uuid-char")
     private UUID id;
+
     @Column(name = "name", unique = true)
     private String name;
+
+    @Positive
     private Double price;
+
+    @PositiveOrZero
     private Integer quantity;
+
     private String aisle;
 
     public Product(){}

@@ -1,6 +1,6 @@
 package com.sapostolos.super_market.dtos;
 
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 
-public record QuantityDto(@Positive Integer quantity) {
+public record QuantityDto(@PositiveOrZero Integer quantity) {
 }

@@ -17,10 +17,13 @@ public class User {
     @Column(name = "id", columnDefinition = "VARCHAR(255)")
     @Type(type="uuid-char")
     private UUID id;
+
     @Column(name = "email", unique = true)
     @Email
     private String email;
+
     private String password;
+
     private Role role;
 
     public User(){}
