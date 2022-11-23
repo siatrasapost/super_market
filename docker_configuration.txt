@@ -1,0 +1,3 @@
+docker pull mysql
+docker network create mynetwork
+docker run --detach --network mynetwork --name=mysql_task --env="MYSQL_ROOT_PASSWORD=0000" --publish 6603:3306 --volume=/root/docker/mysql_task/conf.d:/etc/mysql/conf.d -d mysql:8
