@@ -2,7 +2,9 @@ package com.sapostolos.super_market.utilities;
 
 import com.sapostolos.super_market.dtos.GetProductDto;
 import com.sapostolos.super_market.dtos.RegisterProductDto;
+import com.sapostolos.super_market.dtos.RegisterUserDto;
 import com.sapostolos.super_market.entities.Product;
+import com.sapostolos.super_market.entities.User;
 
 public class Utilities {
     public static GetProductDto productToGetProductDtoConverter(Product product){
@@ -20,5 +22,12 @@ public class Utilities {
         product.setAisle(registerProductDto.aisle());
         product.setQuantity(0);
         return product;
+    }
+
+    public static User registerUserDtoToUserConverter(RegisterUserDto registerUserDto){
+        var user = new User();
+        user.setEmail(registerUserDto.email());
+        user.setPassword(registerUserDto.password());
+        return user;
     }
 }
